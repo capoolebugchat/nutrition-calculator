@@ -1,6 +1,3 @@
-from cmath import e
-import json
-
 def _bmr_calculate(user_data):
     ### BMR
     # Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age in years)
