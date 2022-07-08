@@ -1,4 +1,4 @@
 from python:3.7-slim
 copy . .
 run pip install -r requirements.txt
-cmd ["python3" "server.py"]
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
