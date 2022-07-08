@@ -56,6 +56,6 @@ async def bmr_calculate(user_data: UserData):
 async def tdee_calculate(user_data: UserData):
     
     tdee_index = _tdee_calculate(user_data)
-    res = {"name": user_data.name, "tdee_index": tdee_index}
+    res = {"name": user_data.name, "breakfast": tdee_index*0.3, "lunch":tdee_index*0.4, "dinner":tdee_index*0.3}
     
     return res
