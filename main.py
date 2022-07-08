@@ -2,10 +2,7 @@ from fastapi import FastAPI, Response, status
 from pydantic import BaseModel
 from typing import List, Dict
 from time import time
-
 from calculators import _tdee_calculate, _bmr_calculate, test_run
-
-import uvicorn
 
 class UserData(BaseModel):
     name: str
@@ -62,7 +59,3 @@ async def tdee_calculate(user_data: UserData):
     res = {"name": user_data.name, "tdee_index": tdee_index}
     
     return res
-
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
