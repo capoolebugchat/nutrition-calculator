@@ -1,5 +1,4 @@
 pydantic
 fastapi
-unicorn
-io
+uvicorn
 gunicorn==20.1.0
