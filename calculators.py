@@ -32,7 +32,7 @@ def _tdee_calculate(user_data):
     return calories
 
 def _macro_in_grams(total_calo):
-    carb_calo =  total_calo*random.randint(0.45,0.65)/100
+    carb_calo =  total_calo*random.randint(45,65)/100
     protein_calo = total_calo*random.randint(20,35)/100
     fat_calo = total_calo - carb_calo - protein_calo
     return {
