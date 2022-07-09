@@ -1,3 +1,6 @@
+# Some high tech AI stuffs right here
+import random
+
 def _bmr_calculate(user_data):
     ### BMR
     # Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age in years)
@@ -27,6 +30,38 @@ def _tdee_calculate(user_data):
     calories = _bmr_calculate(user_data)*user_data.excercising_factor
     
     return calories
+
+def _macro_in_grams(total_calo):
+    carb_calo =  total_calo*random.randint(45,65)
+    protein_calo = total_calo*random.randint(20,35)
+    fat_calo = total_calo - carb_calo - protein_calo
+    return {
+        "carb":int(carb_calo/4),
+        "protein":int(protein_calo/4),
+        "fat":int(fat_calo/9),
+        "total_calories": total_calo
+        }
+
+def _macro_per_meal(user_data):
+    
+    breakfast_calo_ratio = 0.3
+    lunch_calo_ratio = 0.4
+    dinner_calo_ratio = 0.3
+    
+    tdee_index = _tdee_calculate(user_data)
+    breakfast_calo = tdee_index*breakfast_calo_ratio
+    lunch_calo = tdee_index*lunch_calo_ratio
+    dinner_calo = tdee_index*dinner_calo_ratio
+
+    _brkfast = _macro_in_grams(breakfast_calo)
+    _lunch   = _macro_in_grams(lunch_calo)
+    _dinner  = _macro_in_grams(dinner_calo)
+    
+    return {
+        "breakfast":_brkfast,
+        "lunch":_lunch,
+        "dinner": _dinner,
+    }
 
 def test_run():
 
