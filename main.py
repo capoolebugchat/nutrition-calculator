@@ -27,10 +27,10 @@ tags_metadata = [
         "name": "tdee-calculate",
         "description": "Calculation of user's daily macro intake"
     },
-    (
-        "name": "macro-per-meal"
+    {
+        "name": "macro-per-meal",
         "description": "Calculations of user's meally plan by macro nutrients"
-    )
+    }
 ]
 
 # init app with exposing RESTAPI
